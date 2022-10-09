@@ -5,11 +5,12 @@ const { Routes } = require("discord-api-types/v9")
 const fs = require("fs")
 const { Player } = require("discord-player")
 
-dotenv.config()
-const TOKEN = process.env.TOKEN
+
 
 const LOAD_SLASH = process.argv[2] == "load"
 
+dotenv.config()
+const TOKEN = process.env.TOKEN
 const CLIENT_ID = process.env.CLIENT_ID
 const GUILD_ID = process.env.GUILD_ID
 
