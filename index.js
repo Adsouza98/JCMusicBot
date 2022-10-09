@@ -1,12 +1,10 @@
 const { Client, Collection, GatewayIntentBits } = require("discord.js")
-const dotenv = require("dotenv")
 const { REST } = require("@discordjs/rest")
 const { Routes } = require("discord-api-types/v9")
-const fs = require("fs")
 const { Player } = require("discord-player")
 
-
-
+const fs = require("fs")
+const dotenv = require("dotenv")
 const LOAD_SLASH = process.argv[2] == "load"
 
 dotenv.config()
@@ -35,7 +33,7 @@ client.player = new Player(client, {
 let commands = []
 
 const slashFiles = fs.readdirSync("./slash").filter(file => file.endsWith(".js"))
-for (const file of slashFiles){
+for (const file of slashFiles) {
     const slashcmd = require(`./slash/${file}`)
     client.slashcommands.set(slashcmd.data.name, slashcmd)
     if (LOAD_SLASH) commands.push(slashcmd.data.toJSON())
