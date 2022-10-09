@@ -40,11 +40,11 @@ for (const file of slashFiles) {
 }
 
 if (LOAD_SLASH) {
-    const rest = new REST({ version: "9" }).setToken(TOKEN)
+    const rest = new REST({ version: '10' }).setToken(TOKEN)
     console.log("Deploying slash commands")
 
-    //rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {body: commands})    // For Solo Server with given GUILD_ID
-    rest.put(Routes.applicationCommands(CLIENT_ID), {body: commands})                     // To Make the Bot avaliable in Any Server
+    rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {body: commands})    // For Solo Server with given GUILD_ID
+    // rest.put(Routes.applicationCommands(CLIENT_ID), {body: commands})                     // To Make the Bot avaliable in Any Server
 
     .then(() => {
         console.log("Successfully loaded")
